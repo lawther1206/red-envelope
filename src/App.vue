@@ -1,21 +1,26 @@
 <template>
-  <div style="width: 100vw; max-width: 100vw">
-    <div :style="{ display: isPc ? 'flex' : '', margin: '10px' }">
-      <pre
-        v-html="state.currentStyleCode"
-        class="styleEditor"
-        ref="styleEditorRef"
-      ></pre>
-      <div class="heartWrapper">
-        <div class="red-envelope">
-          <header></header>
-          <main style="display: none">
-            <h2>祝你新年快乐</h2>
-            <p style="opacity: 0.7">来年暴富</p>
-            <button class="open">开</button>
-          </main>
+  <div>
+    <div style="width: 100vw; max-width: 100vw">
+      <div :style="{ display: isPc ? 'flex' : '', margin: '10px' }">
+        <pre
+          v-html="state.currentStyleCode"
+          class="styleEditor"
+          ref="styleEditorRef"
+        ></pre>
+        <div class="heartWrapper">
+          <div class="red-envelope">
+            <header></header>
+            <main style="display: none">
+              <h2>祝你新年快乐</h2>
+              <p style="opacity: 0.7">年年暴富</p>
+              <button class="open" @click="open">开</button>
+            </main>
+          </div>
         </div>
       </div>
+    </div>
+    <div v-if="state.showPopup" class="popup">
+      <p>{{ state.title }}</p>
     </div>
   </div>
 </template>
@@ -29,6 +34,10 @@ const state = reactive({
   fullStyle: [],
   currentStyleCode: "",
   interval: 30, // 控制文字显示时间
+  // 展示弹窗
+  flag: false,
+  showPopup: false,
+  title: "💢这么着急，红包还没画完呢🧧！！！",
 });
 
 // 控制进度条是最底部
@@ -44,11 +53,22 @@ onMounted(() => {
   });
 });
 
+const open = () => {
+  if (state.flag) state.title = "💥当然是空包的啦！💨";
+  if (state.showPopup) return;
+  state.showPopup = true;
+  // 两秒后自动关闭弹窗
+  setTimeout(() => {
+    state.showPopup = false;
+  }, 2000);
+};
+
 const progressiveShowStyle = async (n = 0) => {
   const showStyle = async (i) => {
     const style = state.fullStyle[n];
     const char = style[i];
     if (!style || !char) {
+      state.flag = true;
       return;
     }
     if (char === "\n" && styleEditorRef.value) {
@@ -151,7 +171,7 @@ body, html {
 	color: #fff;
 	padding: 1em;
 	height: 20em;
-	margin: 3em auto;
+	margin: 1.5em auto;
 	max-width: 16em;
   background: #c40b00;
 	overflow: hidden;
@@ -234,5 +254,19 @@ onBeforeUnmount(() => {
 .styleEditor {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+}
+
+.popup {
+  position: fixed;
+  top: 8%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  color: #aa3939;
+  white-space: nowrap;
 }
 </style>
