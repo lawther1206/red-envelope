@@ -7,7 +7,7 @@
           class="styleEditor"
           ref="styleEditorRef"
         ></pre>
-        <div class="heartWrapper">
+        <div class="wrapper">
           <div class="red-envelope">
             <header></header>
             <main style="display: none">
@@ -153,7 +153,7 @@ body, html {
 /* 接下来，我们来用代码画一个红包🧧 */
 
 /* 首先来一个画板 */
-.heartWrapper {
+.wrapper {
   ${
     isPc.value
       ? `width: 48vw;
