@@ -11,5 +11,8 @@ export default defineConfig({
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
-  publicPath: process.env.NODE_ENV === "production" ? "/red-envelope/" : "/",
+  base: process.env.NODE_ENV === "production" ? "/red-envelope/" : "/",
+  build: {
+    outDir: "docs",
+  },
 });

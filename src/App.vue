@@ -21,7 +21,6 @@
 </template>
 
 <script setup>
-
 import { reactive, ref, onMounted, onBeforeUnmount, nextTick } from "vue";
 // 判断是否是pc
 const isPc = ref(true);
