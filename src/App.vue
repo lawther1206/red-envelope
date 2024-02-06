@@ -168,74 +168,74 @@ body, html {
 
 /* 开始画红包的主体 */
 .red-envelope {
-	color: #fff;
-	padding: 1em;
-	height: 20em;
-	margin: 1.5em auto;
-	max-width: 16em;
+  color: #fff;
+  padding: 1em;
+  height: 20em;
+  margin: 1.5em auto;
+  max-width: 16em;
   background: #c40b00;
-	overflow: hidden;
-	position: relative;
-	border-radius: 1em;
+  overflow: hidden;
+  position: relative;
+  border-radius: 1em;
 }
 
 /* 接着是红包的开口 */
 .red-envelope header {
-	top: -11.5em;
-	left: 0;
-	right: 0;
-	height: 16em;
-	position: absolute;
-	border-radius: 100%;
-	background: #b00b00;
+  top: -11.5em;
+  left: 0;
+  right: 0;
+  height: 16em;
+  position: absolute;
+  border-radius: 100%;
+  background: #b00b00;
 }
 
 /* 新年祝福也得整上 */
 .red-envelope main {
   margin-top: 4.5em;
   display:block !important;
-	text-align: center;
+  text-align: center;
 }
 
 /* 红包的打开按钮 */
 .red-envelope .open {
-	outline: 0;
-	width: 3em;
-	height: 3em;
-	color: #fff;
-	border: none;
-	display: block;
-	font-size: 2em;
-	cursor: pointer;
-	margin: 1em auto;
-	background: #ffb03a;
-	border-radius: 100%;
-	transition:
-		background 0.3s,
-		transform 0.3s;
+  outline: 0;
+  width: 3em;
+  height: 3em;
+  color: #fff;
+  border: none;
+  display: block;
+  font-size: 2em;
+  cursor: pointer;
+  margin: 1em auto;
+  background: #ffb03a;
+  border-radius: 100%;
+  transition:
+	  background 0.3s,
+	  transform 0.3s;
 }
 
 /* 动画安排上 */
 @keyframes scaleAnimation {
-	from {
-		transform: scale(1);
-	}
-	to {
-		transform: scale(1.2);
-	}
+  from {
+	  transform: scale(1);
+  }
+  to {
+	  transform: scale(1.2);
+  }
 }
 
 .open {
-	animation: 
-    scaleAnimation 0.5s ease-in-out 1s infinite;
+  animation:
+  scaleAnimation 0.5s ease-in-out 1s infinite;
 }
 
 /*
 * Ok，完成🌼
 * 提前祝你💌：
-* 在新的一年里🧧，迎来好运连连，事业步步高升，家庭幸福美满。新年快快乐！
+* 在新的一年里🧧，迎来好运连连！
 */
-`,
+    `,
   ];
 };
 
